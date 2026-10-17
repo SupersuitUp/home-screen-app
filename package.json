@@ -1,0 +1,39 @@
+{
+  "name": "@supersuit/home-screen-app",
+  "version": "0.1.0",
+  "description": "The small rules a web app saved to a phone's Home Screen gets wrong: when a floating Back button should show, and what its notifications line should say.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SupersuitUp/home-screen-app.git"
+  },
+  "dependencies": {},
+  "types": "./src/index.d.ts",
+  "keywords": [
+    "pwa",
+    "home-screen",
+    "web-push",
+    "ios",
+    "back-button"
+  ]
+}
