@@ -35,5 +35,8 @@
     "web-push",
     "ios",
     "back-button"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
