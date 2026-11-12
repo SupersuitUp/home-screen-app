@@ -51,3 +51,28 @@ await registration.pushManager.subscribe({ userVisibleOnly: true, applicationSer
 ## License
 
 MIT
+
+## One page as its own Home Screen icon
+
+A phone uses the manifest link the page LOADED WITH when someone taps Add to Home Screen. So a page
+that should be its own icon (a tile, a screen, a deep link) carries, in the HTML the server sends, a
+manifest link pointing at a manifest that starts there. A link swapped in by script later makes an
+icon that opens the app's home.
+
+```js
+import { shortcutOf, shortcutHref, shortcutManifest, addToHomeScreen } from '@supersuit/home-screen-app'
+
+// In the page's server-rendered head:
+const s = shortcutOf('/notes', 'Notes')
+// <link rel="manifest" href={shortcutHref(s)}>  and  <meta name="apple-mobile-web-app-title" content="Notes">
+
+// In the manifest route, from ?start=&name=:
+const shortcut = shortcutOf(url.searchParams.get('start'), url.searchParams.get('name'), { refuse: ['k'] })
+return Response.json(shortcutManifest(appManifest, shortcut, { icons }))
+
+// In the "Add to Home Screen" sheet:
+addToHomeScreen({ ios, android, standalone })   // { how, steps }
+```
+
+Inside a Home Screen app there is no Share sheet, so `addToHomeScreen` says to copy the link and add it
+from the browser. On iOS the icon itself is the page's `apple-touch-icon`, so give the page its own.

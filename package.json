@@ -1,7 +1,7 @@
 {
   "name": "@supersuit/home-screen-app",
-  "version": "0.1.0",
-  "description": "The small rules a web app saved to a phone's Home Screen gets wrong: when a floating Back button should show, and what its notifications line should say.",
+  "version": "0.2.0",
+  "description": "The small rules a web app saved to a phone's Home Screen gets wrong: when a floating Back button should show, what its notifications line should say, and how one page becomes its own Home Screen icon.",
   "type": "module",
   "exports": {
     ".": {
